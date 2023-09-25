@@ -1,0 +1,36 @@
+pekerjaan 0
+spasi ganti jadi _
+jumlah pekerjaan jadi int
+
+%matplotlib inline
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("D:\\kuliah\\sem3\\data mining\\data.jabarprov.go.id\\data-masyarakat-miskin-tahun-2020.csv")
+df.head(46)
+
+df1 = pd.read_csv("D:\\kuliah\\sem3\\data mining\\data.jabarprov.go.id\\data-usaha-kecil-dan-menengah-tahun-2020.csv")
+df1.head(100)
+
+df.info()
+
+df1.info()
+
+df.isna().sum()
+
+df1.isna().sum()
+
+df =df.groupby(['Kelurahan']).sum()
+df = df.drop(["RW"], axis=1)
+df.head()
+
+df1.gol = pd.Categorical(df1.gol,ordered=True,categories=['Antapani Kulon','Antapani Tengah','Antapani wetan','Antapani Kidul'])
+
+
+df1["Jumlah Pekerja"] = df1["Jumlah Pekerja"].astype("int64")
+
+
+
+
